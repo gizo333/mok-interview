@@ -48,13 +48,13 @@ bot.onText(/\/start/, async (msg) => {
 
   
   function sendPeriodicMessage() {
-    const chatId = '-4017837325'; // Замените на реальный идентификатор чата
+    const chatId = '-4017837325';
   
-    // Отправляем сообщение
+
     bot.sendMessage(chatId, 'Привет, это периодическое сообщение!');
   }
   
-  // Запускаем функцию каждые 5 секунд
+
   setInterval(sendPeriodicMessage, 5000);
   
   
