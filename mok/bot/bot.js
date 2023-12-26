@@ -8,7 +8,6 @@ const token = '69';
 
 const bot = new TelegramBot(token, { polling: true });
 
-const adminUserId = 919745761; // Замените на реальный идентификатор вашего администратора
 
 bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
@@ -19,16 +18,15 @@ bot.onText(/\/start/, async (msg) => {
       // Администратору доступна команда /start
       const selectedLanguages = await getUserSettings(userId);
       if (!selectedLanguages) {
-        // Если у администратора нет выбранных языков, отправляем опрос всем пользователям
         const surveyText = 'Выберите язык программирования:';
-        const languageOptions = ['JavaScript', 'TypeScript', 'Python']; // Ваши варианты языков
+        const languageOptions = ['JavaScript', 'TypeScript', 'Python']; 
   
-        // Отправляем опрос каждому пользователю в индивидуальном чате
+    
         const allUsers = await Model.findAll();
         allUsers.forEach(async (user) => {
           const userChatId = user.user_id;
   
-          // Отправляем опрос каждому пользователю
+        
           bot.sendMessage(userChatId, surveyText, {
             reply_markup: {
               inline_keyboard: languageOptions.map(language => [{ text: language, callback_data: language }]),
@@ -36,13 +34,13 @@ bot.onText(/\/start/, async (msg) => {
           });
         });
   
-        // Отправляем настройки администратору
+
         sendSettings(chatId);
       } else {
         bot.sendMessage(chatId, `У вас уже выбраны языки: ${selectedLanguages.join(', ')}`);
       }
     } else {
-      // Если пользователь не является администратором, отправляем сообщение об ошибке
+   
       bot.sendMessage(chatId, 'Извините, у вас нет доступа к этой команде.');
     }
   });

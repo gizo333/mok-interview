@@ -12,9 +12,9 @@ const Bots = sequelize.define('bot', {
     allowNull: false,
   },
   language: {
-    type: DataTypes.STRING, // Измените на DataTypes.STRING
+    type: DataTypes.STRING, 
     allowNull: false,
-    defaultValue: '[]', // Значение по умолчанию - пустая строка, представляющая собой пустой массив
+    defaultValue: '[]', 
   },
 });
 
