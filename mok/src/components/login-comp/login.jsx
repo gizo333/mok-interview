@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import eyeOpen from '../../img/eye-open.png'
 import eyeClose from '../../img/eye-close.png'
 import TG from '../../img/tg.png'
@@ -8,19 +10,39 @@ import github from '../../img/github.png'
 import arrowLeft from '../../img/arrow-left.svg'
 import '../../styles/login.css';
 
-
-
-
 function Login() {
 
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [showPassword, setShowPassword] = useState(false);
+const [message, setMessage] = useState('');
 
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-}
+const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const response = await axios.post('http://127.0.0.1:4199/login/', {
+        email,
+        password,
+      });
+  
+      const data = response.data;
+  
+      if (response.status === 200) {
+        const expirationTimeInHours = 24;
+        Cookies.set('token', data.token, { expires: expirationTimeInHours / 24 });
+      
+        window.location.replace("/");
+      }
+       
+    } catch (error) {
+      if (error.response && error.response.status === 421) {
+        setMessage('Неверный email или пароль!');
+      }
+    }
+  };
+  
 
 const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -34,19 +56,21 @@ const handleTogglePassword = () => {
                 </Link>
                 <h1 className='login-h1'>Вход В личный кабинет</h1>
                 <h3 className='login-h3'>Войти через:</h3>
+                
                 <div className='login-group'>
-                    <img src={TG} alt="telegram" className='tg' />
+                    
+                    <img src={TG} alt="telegram" className='tg'/>
                     <img src={github} alt="telegram" className='tg' />
                     <img src={google} alt="telegram" className='tg' />
-                    
-
+                   
                 </div>
-                
+                {message && <p className='error-style' style={{ color: 'red' }}>{message}</p>}
                 <form className='login-form' onSubmit={handleSubmit}>
                     <div className='from-group'>
                         <input className='from-input' type="text"
                         placeholder='Email'
                         value={email}
+                        autoComplete='Email'
                         onChange={(e) => setEmail(e.target.value)
                           }
                         />
@@ -60,6 +84,7 @@ const handleTogglePassword = () => {
                         id='password'
                         value={password}
                         placeholder='Пароль'
+                        autoComplete='password'
                         onChange={(e) => setPassword(e.target.value)}
                         />
                         <img
@@ -72,7 +97,7 @@ const handleTogglePassword = () => {
                     
                     </div>
         
-                    <Link className='form-btn'><button type="submit">Войти</button></Link>
+                <button className='form-btn' type="submit">Войти</button>
                     
                     
                 </form>
@@ -81,7 +106,7 @@ const handleTogglePassword = () => {
                 <button className='form-reg1'>Регистрация</button>
                 </Link>
 
-                    <button className='pass-recovery'>Забыли пароль?</button>
+                   <Link className='pass-recovery' to='/recoverypass'> <button >Забыли пароль?</button> </Link>
             </div>
         </div>
      );

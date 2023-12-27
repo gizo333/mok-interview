@@ -172,4 +172,8 @@ input::placeholder {
   position: absolute;
   top: 100px; }
 
+.error-style {
+  position: absolute;
+  top: 170px; }
+
 /*# sourceMappingURL=login.css.map */

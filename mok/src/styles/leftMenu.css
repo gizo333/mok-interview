@@ -75,7 +75,7 @@ legend {
 
 .lm-container {
   display: flex;
-  background-color: white;
+  background-color: #f5f5f5;
   justify-content: center;
   flex-direction: column;
   width: 80px;
@@ -136,5 +136,10 @@ legend {
         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; }
       .welcome-container .welcome-ul .welcome-li .welcome-btn:hover {
         background-color: #ededed; }
+
+.setting-img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer; }
 
 /*# sourceMappingURL=leftMenu.css.map */
