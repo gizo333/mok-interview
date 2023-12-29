@@ -1,40 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../../styles/setting.css'
-import arrowLeft from '../../img/arrow-left.svg'
-import PersonalSetting from './personal-setting';
 import { useState } from 'react';
-import MobileMenu from './setting-mobile';
-import SettingList from './setting-menu-list';
+import { Link } from 'react-router-dom';
+import arrowLeft from '../../img/arrow-left.svg'
+import '../../styles/setting-menu-list.css'
 
-//меню сделать стики!
 
-function Setting() {
+
+function SettingList() {
     const [selectBtn, setSelectBtn] = useState('');
-    const [isSettingListVisible, setIsSettingListVisible] = useState(false);
-  
-    const handleBtn = (btnLabel) => {
-      setSelectBtn(btnLabel);
-      setIsSettingListVisible(false); // Скрыть SettingList при нажатии кнопки
-    };
-  
-    const toggleSettingList = () => {
-      setIsSettingListVisible(!isSettingListVisible);
-    };
-    
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
+
+  const handleBtn = (btnLabel) => {
+    setSelectBtn(btnLabel);
+    setIsMobileMenuVisible(false); // Скрыть mobile-menu при нажатии кнопки
+  };
+
 
     return ( 
-        <div className='setting-head'>
-         <MobileMenu onSettingButtonClick={toggleSettingList} />
-      {isSettingListVisible && <SettingList />}
-           <p className='personal-name-page'>{selectBtn}</p>
-
-               
-            <div className='setting-container'>
+        <div className={`mobile-menu ${isMobileMenuVisible ? 'visible' : 'hidden'}`}>
                 
             <Link className='arrow' to='/'>  <img  src={arrowLeft} alt="" />
                 </Link>
-                <div className='setting-wrapper'>
+                <div className='mobile-wrapper'>
                     
                    
                 <ul className='setting-acc-ul'>
@@ -65,17 +52,12 @@ function Setting() {
                     <li className='setting-acc-li'>
                     <Link> <button className='setting-btn'onClick={() => handleBtn('Оставить отзыв')}>Оставить отзыв</button> </Link> 
                     </li>
-                    <hr className='line' />
                     
                     
                 </ul>
-                <button className='setting-logout'>Log Out</button>
                 </div>
             </div>
-            {selectBtn === 'Аккаунт' && <PersonalSetting selectBtn={selectBtn} />}
-
-</div>
-     );
+    );
 }
 
-export default Setting;
+export default SettingList;

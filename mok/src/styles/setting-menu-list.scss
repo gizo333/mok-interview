@@ -1,0 +1,89 @@
+@import 'reset';
+
+.mobile-menu{
+    display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+        min-height: 100vh;
+        height: auto;
+        background-color: #f5f5f5;
+        border-right: 1px solid #cac9c9;
+        position: relative;
+
+        .arrow{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            left: 10px;
+
+        }
+
+        .mobile-wrapper{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+            width: 220px;
+        }
+
+        .line{
+            width: 70vw;
+            height: 10px;
+            border-bottom:1px solid #cac9c9;
+        }
+
+        .setting-acc-ul{
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            align-items: center;
+            
+            .setting-p{
+                white-space: nowrap;
+                color: #6e6e6e;
+                
+
+            }
+
+            .setting-pr{
+                white-space: nowrap;
+                color: #6e6e6e;
+                margin-bottom: 10px;
+                margin-top: 5px;
+                
+
+            }
+            
+
+            .setting-acc-li{
+                font-weight: 100;
+                padding: 10px 0 10px 0;
+                margin-left: 20px;
+
+                .setting-btn{
+                    display: flex;
+                    white-space: nowrap;
+                    width: 100%;
+                    padding-left: 10px;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }
+
+                .setting-btn:hover,
+                .setting-btn:active,
+                .setting-btn:focus {
+                background-color: #b3b6b8;
+                outline: none;
+                }
+                
+            }
+        }
+}
+
+@media screen and (min-width: 666px) {
+    .mobile-menu {
+      display: none;
+    }
+  }
