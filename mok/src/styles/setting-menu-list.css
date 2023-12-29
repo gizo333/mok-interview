@@ -130,7 +130,12 @@ legend {
         outline: none; }
 
 @media screen and (min-width: 666px) {
+  .mobile-menu.visible {
+    display: flex; }
+
   .mobile-menu {
     display: none; } }
+.visible {
+  display: flex; }
 
 /*# sourceMappingURL=setting-menu-list.css.map */

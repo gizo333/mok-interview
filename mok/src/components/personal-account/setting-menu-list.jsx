@@ -6,18 +6,18 @@ import '../../styles/setting-menu-list.css'
 
 
 
-function SettingList() {
-    const [selectBtn, setSelectBtn] = useState('');
-  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
+function SettingList({ hideSettingList }) {
+    const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
 
-  const handleBtn = (btnLabel) => {
-    setSelectBtn(btnLabel);
-    setIsMobileMenuVisible(false); // Скрыть mobile-menu при нажатии кнопки
-  };
+    const handleBtn = () => {
+        setIsMobileMenuVisible(false);
+        hideSettingList(); // Вызывайте функцию hideSettingList, чтобы скрыть SettingList в родительском компоненте
+      };
+
 
 
     return ( 
-        <div className={`mobile-menu ${isMobileMenuVisible ? 'visible' : 'hidden'}`}>
+        <div className={`mobile-menu ${isMobileMenuVisible ? 'visible' : ''}`}>
                 
             <Link className='arrow' to='/'>  <img  src={arrowLeft} alt="" />
                 </Link>
@@ -29,7 +29,7 @@ function SettingList() {
                 
                     <li className='setting-acc-li'>
                         
-                        <Link  ><button className='setting-btn' onClick={() => handleBtn('Аккаунт')}>Аккаунт</button></Link>
+                        <Link  ><button className='setting-btn' onClick={() => { handleBtn(); }}>Аккаунт</button></Link>
                         
                       
                     </li>

@@ -11,11 +11,17 @@ import logoutImage from '../../img/logout.svg';
 
 
 function MobileMenu({ onSettingButtonClick }) {
+    
+    
     return (  
         <div className='mobile-container'>
             
             <ul className='mobile-ul'>
-               <Link> <button className='mobile-setting' onClick={onSettingButtonClick} ><img src={settingImage}  alt="setting" /></button> </Link>
+            <Link to=''>
+          <button className='mobile-setting' onClick={onSettingButtonClick}>
+            <img src={settingImage} alt="setting" />
+          </button>
+        </Link>
             </ul>
 
             <ul className='mobile-ul2'>

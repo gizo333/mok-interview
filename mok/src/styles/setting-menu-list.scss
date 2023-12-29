@@ -11,6 +11,8 @@
         border-right: 1px solid #cac9c9;
         position: relative;
 
+        
+
         .arrow{
             position: absolute;
             width: 30px;
@@ -83,7 +85,19 @@
 }
 
 @media screen and (min-width: 666px) {
+    .mobile-menu.visible {
+      display: flex;
+    }
+  
     .mobile-menu {
       display: none;
     }
   }
+  
+
+  .visible {
+    display: flex;
+  }
+  
+
+  

@@ -15,18 +15,19 @@ function Setting() {
   
     const handleBtn = (btnLabel) => {
       setSelectBtn(btnLabel);
-      setIsSettingListVisible(false); // Скрыть SettingList при нажатии кнопки
+      setIsSettingListVisible(false); 
     };
   
     const toggleSettingList = () => {
-      setIsSettingListVisible(!isSettingListVisible);
-    };
+        setIsSettingListVisible(prevState => !prevState);
+      };
+      
     
 
     return ( 
         <div className='setting-head'>
          <MobileMenu onSettingButtonClick={toggleSettingList} />
-      {isSettingListVisible && <SettingList />}
+      {isSettingListVisible && <SettingList hideSettingList={() => setIsSettingListVisible(false)} />}
            <p className='personal-name-page'>{selectBtn}</p>
 
                
