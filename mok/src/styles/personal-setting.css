@@ -1,0 +1,130 @@
+/* Reset and base styles  */
+@import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none; }
+
+body {
+  font-family: 'Kelly Slab', sans-serif; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+  color: initial; }
+
+a:hover {
+  text-decoration: none; }
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit; }
+
+ul, ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+img, svg {
+  max-width: 100%;
+  height: auto; }
+
+address {
+  font-style: normal; }
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent; }
+
+input::-ms-clear {
+  display: none; }
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer; }
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+label {
+  cursor: pointer; }
+
+legend {
+  display: block; }
+
+.personal-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  order: 1;
+  height: auto;
+  width: 100%; }
+  .personal-container .personal-name {
+    width: 60vw;
+    height: 300px;
+    margin-top: 5px;
+    border-top: 1px solid #cac9c9;
+    border-bottom: 1px solid #cac9c9;
+    position: relative; }
+
+.personal-form {
+  display: flex;
+  flex-direction: column; }
+  .personal-form .info {
+    white-space: nowrap;
+    width: 200px;
+    margin: 20px 0 0 30px;
+    border-bottom: 1px solid #efeeee;
+    font-weight: 800;
+    font-size: 18px;
+    color: #6c6c6c;
+    letter-spacing: 2px; }
+  .personal-form label {
+    margin-top: 10px;
+    margin-left: 50px;
+    color: #6c6c6c;
+    width: 100px; }
+  .personal-form .username {
+    width: 40vw;
+    background-color: #efeeee;
+    margin-left: 50px;
+    border-radius: 3px; }
+  .personal-form .last-name {
+    width: 40vw;
+    background-color: #efeeee;
+    margin-left: 50px;
+    border-radius: 3px; }
+  .personal-form .personal-btn-wrapper {
+    display: flex;
+    justify-content: flex-end; }
+    .personal-form .personal-btn-wrapper .personal-save {
+      border-radius: 10px;
+      border: 2px solid #b9b9b9;
+      margin-right: 50px;
+      margin-top: 10px; }
+      .personal-form .personal-btn-wrapper .personal-save .personal-save-btn {
+        padding: 5px; }
+
+/*# sourceMappingURL=personal-setting.css.map */

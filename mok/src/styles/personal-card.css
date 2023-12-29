@@ -1,0 +1,169 @@
+/* Reset and base styles  */
+@import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none; }
+
+body {
+  font-family: 'Kelly Slab', sans-serif; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+  color: initial; }
+
+a:hover {
+  text-decoration: none; }
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit; }
+
+ul, ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+img, svg {
+  max-width: 100%;
+  height: auto; }
+
+address {
+  font-style: normal; }
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent; }
+
+input::-ms-clear {
+  display: none; }
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer; }
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+label {
+  cursor: pointer; }
+
+legend {
+  display: block; }
+
+.card-container {
+  display: flex;
+  position: relative;
+  height: 30vh;
+  width: 60vw;
+  background-color: red;
+  margin-top: 70px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(95, 92, 92, 0.2) 0%, rgba(56, 49, 49, 0) 100%), #eeeeee; }
+  .card-container .card-photo {
+    position: absolute;
+    background-color: azure;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 20px;
+    left: 20px; }
+  .card-container .card-name-age {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    white-space: nowrap; }
+  .card-container .card-email {
+    position: absolute;
+    width: 300px;
+    font-size: 20px;
+    bottom: 10px;
+    left: 10px; }
+    .card-container .card-email .email {
+      color: #6e6e6e; }
+  .card-container .card-profile {
+    display: flex;
+    align-items: flex-end;
+    white-space: nowrap;
+    margin-right: 10vw;
+    margin-bottom: 4.3vh;
+    font-size: 20px; }
+    .card-container .card-profile .profile {
+      border: 1px solid #6e6e6e;
+      border-radius: 10px; }
+      .card-container .card-profile .profile .profile-btn {
+        padding: 5px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease; }
+    .card-container .card-profile .profile-btn:hover {
+      background-color: #b3b6b8;
+      outline: none; }
+  @media (max-width: 1160px) {
+    .card-container .card-profile {
+      margin-left: 30px;
+      font-size: 18px; }
+    .card-container .card-name-age {
+      font-size: 18px; } }
+  @media (max-width: 865px) {
+    .card-container .card-profile {
+      font-size: 16px; }
+    .card-container .card-name-age {
+      font-size: 16px; }
+    .card-container .card-email {
+      font-size: 16px; } }
+  @media (max-width: 500px) {
+    .card-container .card-profile {
+      font-size: 14px; }
+    .card-container .card-name-age {
+      font-size: 14px; }
+    .card-container .card-email {
+      font-size: 14px; } }
+  @media (max-width: 444px) {
+    .card-container .card-profile {
+      font-size: 12px; }
+    .card-container .card-name-age {
+      font-size: 12px; }
+    .card-container .card-email {
+      font-size: 12px; } }
+  @media (max-width: 395px) {
+    .card-container .card-profile {
+      margin-left: 5px;
+      font-size: 11px; }
+    .card-container .card-name-age {
+      font-size: 11px; }
+    .card-container .card-email {
+      font-size: 12px; } }
+
+@media (max-width: 660px) {
+  .card-container {
+    width: 80vw;
+    height: 30vh; } }
+
+/*# sourceMappingURL=personal-card.css.map */

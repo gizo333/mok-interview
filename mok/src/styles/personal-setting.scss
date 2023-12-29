@@ -1,0 +1,82 @@
+@import 'reset';
+
+
+
+.personal-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    order: 1;
+    height: auto;
+    width: 100%;
+
+    
+    .personal-name{
+        width: 60vw;
+        height: 300px;
+        margin-top: 5px;
+        border-top: 1px solid #cac9c9;
+        border-bottom: 1px solid #cac9c9;
+        position: relative;
+    }
+}
+
+
+.personal-form{
+    display: flex;
+    flex-direction: column;
+
+    .info{
+        white-space: nowrap;
+        width: 200px;
+        margin: 20px 0 0 30px;
+        border-bottom: 1px solid #efeeee;
+        font-weight: 800;
+        font-size: 18px;
+        color: rgb(108, 108, 108);
+        letter-spacing: 2px;
+
+    }
+    
+
+    label{
+        margin-top: 10px;
+        margin-left: 50px;
+        color: rgb(108, 108, 108);
+        width: 100px;
+    }
+
+   .username{
+    width: 40vw;
+    background-color: #efeeee;
+    margin-left: 50px;
+    border-radius: 3px;
+}
+
+    .last-name{
+        width: 40vw;
+        background-color: #efeeee;
+        margin-left: 50px;
+        border-radius: 3px;
+    }
+
+    .personal-btn-wrapper{
+        display: flex;
+            justify-content: flex-end;
+        
+
+        .personal-save{
+            border-radius: 10px;
+            border: 2px solid #b9b9b9;
+            margin-right: 50px;
+            margin-top: 10px;
+             .personal-save-btn{
+                 padding: 5px;
+                
+             }
+         }
+    }
+
+        
+}

@@ -1,0 +1,149 @@
+@import 'reset';
+
+
+.card-container{
+    display: flex;
+    position: relative;
+    height: 30vh;
+    width: 60vw;
+    background-color: red;
+    margin-top: 70px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(95, 92, 92, 0.20) 0%, rgba(56, 49, 49, 0.00) 100%), #eeeeee;
+
+        .card-photo{
+            position: absolute;
+            background-color: azure;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            top: 20px;
+            left: 20px;
+        }
+
+
+        .card-name-age{
+            width: 100%;
+            display: flex;
+            position: relative;
+            align-items: flex-end;
+            gap: 10px;
+            font-size: 20px;
+            margin-bottom: 40px;
+            margin-left: 10px;
+            white-space: nowrap;
+
+            
+        }
+
+        .card-email{
+            position: absolute;
+            width: 300px;
+            font-size: 20px;
+            bottom: 10px;
+            left: 10px;
+
+            .email{
+                color: #6e6e6e;
+            }
+        }
+        .card-profile{
+            display: flex;
+            align-items: flex-end;
+            white-space: nowrap;
+            margin-right: 10vw;
+            margin-bottom: 4.3vh;
+            font-size: 20px;
+
+            
+           
+
+            .profile{
+                border: 1px solid #6e6e6e;
+                border-radius: 10px;
+                
+
+                .profile-btn{
+                    padding: 5px;
+                    border-radius: 10px;
+                    transition: background-color 0.3s ease;
+                    
+                }
+            }
+
+            .profile-btn:hover
+             {
+                    background-color: #b3b6b8;
+                    outline: none;
+                    }
+        }
+        
+        @media (max-width: 1160px) {
+            .card-profile  {
+                margin-left: 30px;
+                font-size: 18px;
+            }
+            .card-name-age{
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 865px) {
+            .card-profile  {
+                font-size: 16px;
+            }
+            .card-name-age{
+                font-size: 16px;
+            }
+            .card-email{
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 500px) {
+            .card-profile  {
+                font-size: 14px;
+            }
+            .card-name-age{
+                font-size: 14px;
+            }
+            .card-email{
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 444px) {
+            .card-profile  {
+                font-size: 12px;
+            }
+            .card-name-age{
+                font-size: 12px;
+            }
+            .card-email{
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 395px) {
+            .card-profile  {
+                margin-left: 5px;
+                font-size: 11px;
+            }
+            .card-name-age{
+                font-size: 11px;
+            }
+            .card-email{
+                font-size: 12px;
+            }
+        }
+
+        
+}
+
+
+@media (max-width: 660px) {
+    .card-container{
+        width: 80vw;
+        height: 30vh;
+    }
+    
+}
+

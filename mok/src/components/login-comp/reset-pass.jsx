@@ -6,6 +6,8 @@ import eyeClose from '../../img/eye-close.png';
 import arrowLeft from '../../img/arrow-left.svg';
 import '../../styles/login.css';
 
+//Сделать ссылку для сброса пароля одноразовой 
+
 function Reset() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
