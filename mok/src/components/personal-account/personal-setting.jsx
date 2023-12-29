@@ -14,15 +14,15 @@ function PersonalSetting() {
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
                     <p className='info'>ФИО:</p>
-                        <label for="username">Имя:</label>
+                        <label htmlFor="username">Имя:</label>
                         <br />
                         <input className='username' type="text" id='username' name='username' />
 
-                        <label for="lastname">Фамилия:</label>
+                        <label htmlFor="lastname">Фамилия:</label>
                         <br />
                         <input className='last-name' type="text" id='lastname' name='lastname' />
 
-                        <label for="otchest">Отчество:</label>
+                        <label htmlFor="otchest">Отчество:</label>
                         <br />
                         <input className='last-name' type="text" id='otchest' name='otchest' />
                         <div className='personal-btn-wrapper'>
@@ -36,15 +36,15 @@ function PersonalSetting() {
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
                         <p className='info'>Дата рождения:</p>
-                        <label for="day">День:</label>
+                        <label htmlFor="day">День:</label>
                         <br />
                         <input className='username' type="text" id='day' name='day' />
 
-                        <label for="month">Месяц:</label>
+                        <label htmlFor="month">Месяц:</label>
                         <br />
                         <input className='last-name' type="text" id='month' name='month' />
 
-                        <label for="year">Год:</label>
+                        <label htmlFor="year">Год:</label>
                         <br />
                         <input className='last-name' type="text" id='year' name='year' />
 
@@ -60,15 +60,15 @@ function PersonalSetting() {
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
                     <p className='info'>Контакты:</p>
-                        <label for="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <br />
                         <input className='username' type="text" id='email' name='email' />
 
-                        <label for="telegram">Telegram:</label>
+                        <label htmlFor="telegram">Telegram:</label>
                         <br />
                         <input className='last-name' type="text" id='telegram' name='telegram' />
 
-                        <label for="github">GitHub:</label>
+                        <label htmlFor="github">GitHub:</label>
                         <br />
                         <input className='last-name' type="text" id='github' name='github' />
 

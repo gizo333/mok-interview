@@ -1,23 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import arrowLeft from '../../img/arrow-left.svg'
 import '../../styles/setting-menu-list.css'
 
+//МЕНЮ ДЛЯ МОБИЛКИ ОСНОВНОЕ
 
+function SettingList({ onSettingButtonClick }) {
+    const [, setSelectBtn] = useState('');
+ 
 
-function SettingList({ hideSettingList }) {
-    const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(true);
-
-    const handleBtn = () => {
-        setIsMobileMenuVisible(false);
-        hideSettingList(); // Вызывайте функцию hideSettingList, чтобы скрыть SettingList в родительском компоненте
+  
+    const handleBtn = (btnLabel) => {
+        
+        setSelectBtn(btnLabel);
+        onSettingButtonClick(btnLabel);
       };
+      
 
 
 
     return ( 
-        <div className={`mobile-menu ${isMobileMenuVisible ? 'visible' : ''}`}>
+        <div className='mobile-menu' >
                 
             <Link className='arrow' to='/'>  <img  src={arrowLeft} alt="" />
                 </Link>
@@ -29,7 +33,7 @@ function SettingList({ hideSettingList }) {
                 
                     <li className='setting-acc-li'>
                         
-                        <Link  ><button className='setting-btn' onClick={() => { handleBtn(); }}>Аккаунт</button></Link>
+                        <Link  ><button className='setting-btn' onClick={() =>  handleBtn('Аккаунт')}>Аккаунт</button></Link>
                         
                       
                     </li>
@@ -55,9 +59,13 @@ function SettingList({ hideSettingList }) {
                     
                     
                 </ul>
+                
                 </div>
+                
             </div>
+            
     );
 }
+
 
 export default SettingList;

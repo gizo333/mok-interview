@@ -19,15 +19,20 @@ function Setting() {
     };
   
     const toggleSettingList = () => {
-        setIsSettingListVisible(prevState => !prevState);
+        setIsSettingListVisible((prevState) => !prevState);
+        // Передайте выбранное значение кнопки в функцию handleBtn
+        if (!isSettingListVisible) {
+          setSelectBtn('');
+        }
       };
+      
       
     
 
     return ( 
         <div className='setting-head'>
          <MobileMenu onSettingButtonClick={toggleSettingList} />
-      {isSettingListVisible && <SettingList hideSettingList={() => setIsSettingListVisible(false)} />}
+      {isSettingListVisible && <SettingList hideSettingList={() => setIsSettingListVisible(false)} onSettingButtonClick={handleBtn} />}
            <p className='personal-name-page'>{selectBtn}</p>
 
                

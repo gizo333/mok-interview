@@ -77,11 +77,10 @@ legend {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 80vw;
   min-height: 100vh;
   height: auto;
   background-color: #f5f5f5;
-  border-right: 1px solid #cac9c9;
   position: relative; }
   .mobile-menu .arrow {
     position: absolute;
@@ -129,13 +128,18 @@ legend {
         background-color: #b3b6b8;
         outline: none; }
 
-@media screen and (min-width: 666px) {
-  .mobile-menu.visible {
-    display: flex; }
+.closing {
+  animation: slideOut 0.5s ease forwards; }
 
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%); } }
+@media screen and (min-width: 666px) {
   .mobile-menu {
-    display: none; } }
-.visible {
-  display: flex; }
+    display: flex; } }
 
 /*# sourceMappingURL=setting-menu-list.css.map */

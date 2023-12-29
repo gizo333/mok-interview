@@ -5,7 +5,7 @@ import settingImage from '../../img/setting.svg';
 import logoutImage from '../../img/logout.svg';
 
 
-
+// ЛЕВОЕ МЕНЮ ДЛЯ МОБИЛКИ
 
 
 
@@ -19,13 +19,13 @@ function MobileMenu({ onSettingButtonClick }) {
             <ul className='mobile-ul'>
             <Link to=''>
           <button className='mobile-setting' onClick={onSettingButtonClick}>
-            <img src={settingImage} alt="setting" />
+            <img className='mobile-img' src={settingImage} alt="setting" />
           </button>
         </Link>
             </ul>
 
             <ul className='mobile-ul2'>
-            <button className='mobile-logout'><img src={logoutImage} alt="" /></button>
+            <button className='mobile-logout'><img className='mobile-img' src={logoutImage} alt="" /></button>
             </ul>
 
         </div>
