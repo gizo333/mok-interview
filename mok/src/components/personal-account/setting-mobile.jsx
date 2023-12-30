@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/setting-mobile.css'
+import '../../styles/mobile-left-menu.css'
 import settingImage from '../../img/setting.svg';
 import logoutImage from '../../img/logout.svg';
 

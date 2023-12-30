@@ -8,9 +8,11 @@ import MobileMenu from './setting-mobile';
 import SettingList from './setting-menu-list';
 
 //меню сделать стики!
+//все кнопки в данной директории засунуть в redux
+//сделать плавную анимацию для открытия и закрытия меню
 
 function Setting() {
-    const [selectBtn, setSelectBtn] = useState('');
+    const [selectBtn, setSelectBtn] = useState('Аккаунт');
     const [isSettingListVisible, setIsSettingListVisible] = useState(false);
   
     const handleBtn = (btnLabel) => {
@@ -20,7 +22,6 @@ function Setting() {
   
     const toggleSettingList = () => {
         setIsSettingListVisible((prevState) => !prevState);
-        // Передайте выбранное значение кнопки в функцию handleBtn
         if (!isSettingListVisible) {
           setSelectBtn('');
         }
@@ -32,7 +33,7 @@ function Setting() {
     return ( 
         <div className='setting-head'>
          <MobileMenu onSettingButtonClick={toggleSettingList} />
-      {isSettingListVisible && <SettingList hideSettingList={() => setIsSettingListVisible(false)} onSettingButtonClick={handleBtn} />}
+        {isSettingListVisible && <SettingList hideSettingList={() => setIsSettingListVisible(false)} onSettingButtonClick={handleBtn} />}
            <p className='personal-name-page'>{selectBtn}</p>
 
                
@@ -48,7 +49,7 @@ function Setting() {
                 
                     <li className='setting-acc-li'>
                         
-                        <Link  ><button className='setting-btn' onClick={() => handleBtn('Аккаунт')}>Аккаунт</button></Link>
+                        <Link  ><button className={`setting-btn${selectBtn === 'Аккаунт' ? ' active' : ''}`} onClick={() => handleBtn('Аккаунт')}>Аккаунт</button></Link>
                         
                       
                     </li>

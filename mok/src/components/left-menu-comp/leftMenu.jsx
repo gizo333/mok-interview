@@ -4,6 +4,8 @@ import Cookies from 'js-cookie';
 import settingImage from '../../img/setting.svg';
 import '../../styles/leftMenu.css';
 
+
+
 function LeftMenu({ day, onToggleCalendar}) {
     const buttonText = day ? day.toString() : "No date";
     const token = Cookies.get('token');

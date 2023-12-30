@@ -76,7 +76,7 @@ legend {
 .card-container {
   display: flex;
   position: relative;
-  height: 30vh;
+  height: 25vh;
   width: 60vw;
   background-color: red;
   margin-top: 70px;

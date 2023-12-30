@@ -150,4 +150,7 @@ body {
       display: none;
       /* Скрываем .setting-container, когда ширина экрана менее 665px */ } }
 
+.active {
+  background-color: #b3b6b8; }
+
 /*# sourceMappingURL=setting.css.map */

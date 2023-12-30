@@ -4,7 +4,7 @@
 .card-container{
     display: flex;
     position: relative;
-    height: 30vh;
+    height: 25vh;
     width: 60vw;
     background-color: red;
     margin-top: 70px;
@@ -133,12 +133,8 @@
             .card-email{
                 font-size: 12px;
             }
-        }
-
-        
+        } 
 }
-
-
 @media (max-width: 660px) {
     .card-container{
         width: 80vw;

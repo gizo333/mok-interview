@@ -1,20 +1,15 @@
 import React from 'react';
-import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import arrowLeft from '../../img/arrow-left.svg'
-import '../../styles/setting-menu-list.css'
+import '../../styles/mobile-menu.css'
 
 //МЕНЮ ДЛЯ МОБИЛКИ ОСНОВНОЕ
+// СДЕЛАТЬ ПЛАВНО ОТОБРАЖЕНИЕ МЕНЮ
 
 function SettingList({ onSettingButtonClick }) {
-    const [, setSelectBtn] = useState('');
  
-
-  
     const handleBtn = (btnLabel) => {
-        
-        setSelectBtn(btnLabel);
-        onSettingButtonClick(btnLabel);
+        onSettingButtonClick(btnLabel); //передаем значение кнопки в родитель тоесть в /setting
       };
       
 

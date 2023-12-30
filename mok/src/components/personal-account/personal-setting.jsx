@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useState}from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/personal-setting.css'
 import PersonalCard from './personal-card';
+import PersonalCardReverse from './personal-card-reverse';
 
+// КНОПКУ 'сохранить' УБРАТЬ, ВМЕСТО НЕЕ БУДЕТ 
+//СОХРАНЯТЬСЯ ЕСЛИ УБРАЛ ФОКУС С ИНПУТА
+
+// СОХРАНЯЕМ ВСЕ В БД
 
 
 function PersonalSetting() {
+   
+
+
+
     return ( 
        
         <div className='personal-container'>
-            <PersonalCard />
+            {/* <PersonalCard /> */}
+            <PersonalCardReverse  />
             <div className='personal-name'>
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
