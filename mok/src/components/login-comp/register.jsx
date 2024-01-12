@@ -17,9 +17,19 @@ const [repeatPassword, setRepeatPassword] = useState('');
 const [showPassword, setShowPassword] = useState(false);
 const [message, setMessage] = useState('');
 
+const isValidEmail = (email) => {
+  // Регулярное выражение для проверки формата email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 const handleSubmitReg = async (e) => {
     e.preventDefault();
+
+    if (!isValidEmail(email)) {
+      setMessage('Введите корректный адрес электронной почты');
+      return;
+    }
 
     if (password !== repeatPassword) {
         setMessage('Пароли не совпадают');
@@ -27,20 +37,17 @@ const handleSubmitReg = async (e) => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:4199/register/', {
+      const response = await axios.post('http://127.0.0.1:4201/reg/register', {
         email: email,
         password: password,
       });
   
-      const token = response.data.token;
+      const token = response.data;
       if (token) {
-        const expirationTime = 10 / (24 * 60);
-        Cookies.set('token', token, { expires: expirationTime });
-        console.log('Токен сохранен в куки:', Cookies.get('token'));
-      } else {
-        console.log('Токен отсутствует');
+        const expirationTimeInHours = 24;
+        Cookies.set('token', token, { expires: expirationTimeInHours / 24 });
+        window.location.replace("/");
       }
-      console.log('Ответ:', response.data);
 
     setEmail('');
     setPassword('');

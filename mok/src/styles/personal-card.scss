@@ -4,79 +4,67 @@
 .card-container{
     display: flex;
     position: relative;
-    height: 25vh;
+    min-height: 25vh;
+    height: auto;
     width: 60vw;
-    background-color: red;
     margin-top: 70px;
     border-radius: 10px;
     background: linear-gradient(180deg, rgba(95, 92, 92, 0.20) 0%, rgba(56, 49, 49, 0.00) 100%), #eeeeee;
 
-        .card-photo{
-            position: absolute;
-            background-color: azure;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            top: 20px;
-            left: 20px;
-        }
 
-
-        .card-name-age{
+    
+        
+    
+        .card-info{
+            display: flex;
             width: 100%;
-            display: flex;
-            position: relative;
-            align-items: flex-end;
-            gap: 10px;
-            font-size: 20px;
-            margin-bottom: 40px;
-            margin-left: 10px;
-            white-space: nowrap;
+            height: 100px;
+            margin-top: 20px;
 
             
-        }
 
-        .card-email{
-            position: absolute;
-            width: 300px;
-            font-size: 20px;
-            bottom: 10px;
-            left: 10px;
 
-            .email{
-                color: #6e6e6e;
-            }
-        }
-        .card-profile{
-            display: flex;
-            align-items: flex-end;
-            white-space: nowrap;
-            margin-right: 10vw;
-            margin-bottom: 4.3vh;
-            font-size: 20px;
-
-            
-           
-
-            .profile{
-                border: 1px solid #6e6e6e;
-                border-radius: 10px;
-                
-
-                .profile-btn{
-                    padding: 5px;
-                    border-radius: 10px;
-                    transition: background-color 0.3s ease;
-                    
+                .card-photo{
+                    background-color: azure;
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                    margin: 0 50px 0 30px;
+                    white-space: nowrap;
                 }
-            }
 
-            .profile-btn:hover
-             {
-                    background-color: #b3b6b8;
-                    outline: none;
+                .card-info-ul{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .card-info-li{
+                        margin-bottom: 10px;
+                        margin-right: 5px;
                     }
+        
+                }
+
+                
         }
+
+
+        .btn-wrapper{
+            margin-right: 30px;
+           position: absolute;
+           right: 0;
+           bottom: 30px;
+           border: 1px solid gray;
+           border-radius: 10px;
+        .profile-btn{
+           padding: 3px;
+            white-space: nowrap;
+        }
+    }
+      
+    
+
+        
+
         
         @media (max-width: 1160px) {
             .card-profile  {

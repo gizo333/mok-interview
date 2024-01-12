@@ -5,6 +5,7 @@ import Login from '../components/login-comp/login'
 import Register from '../components/login-comp/register'
 import Recovery from '../components/login-comp/recovery-pass'
 import Setting from '../components/personal-account/setting'
+import {TokenChecker} from './AuthLoader';
 
 
 
@@ -17,7 +18,9 @@ function Routs() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recoverypass" element={<Recovery />} />
-        <Route path="/setting" element={<Setting />} />
+        <Route
+          path="/setting"
+          element={<TokenChecker><Setting /></TokenChecker> }/>
       </Routes>
     </Router>
   );

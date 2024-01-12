@@ -22,16 +22,18 @@ const handleSubmit = async (event) => {
     event.preventDefault();
   
     try {
-      const response = await axios.post('http://127.0.0.1:4199/login/', {
+      const response = await axios.post('http://127.0.0.1:4199/auth/login', {
         email,
         password,
       });
+
+      console.log('Response from server:', response);
   
       const data = response.data;
   
-      if (response.status === 200) {
-        const expirationTimeInHours = 24;
-        Cookies.set('token', data.token, { expires: expirationTimeInHours / 24 });
+      if (response.status === 222) {
+         const expiresInMinutes = 120;
+        Cookies.set('token', data.token, { expires: new Date(Date.now() + expiresInMinutes * 60 * 1000) });
       
         window.location.replace("/");
       }

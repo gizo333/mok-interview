@@ -74,6 +74,7 @@ legend {
   display: block; }
 
 .HomeHeader {
+  height: 100dvh;
   display: flex; }
 
 /*# sourceMappingURL=home.css.map */

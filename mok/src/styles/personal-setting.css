@@ -84,7 +84,7 @@ legend {
   box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1); }
   .personal-container .personal-name {
     width: 60vw;
-    height: 300px;
+    height: auto;
     margin-top: 5px;
     border-top: 1px solid #cac9c9;
     position: relative; }
@@ -96,6 +96,14 @@ legend {
     white-space: nowrap;
     width: 200px;
     margin: 20px 0 0 30px;
+    border-bottom: 1px solid #efeeee;
+    font-weight: 800;
+    font-size: 18px;
+    color: #6c6c6c;
+    letter-spacing: 2px; }
+  .personal-form .info-stack {
+    width: 200px;
+    margin: 20px 0 10px 30px;
     border-bottom: 1px solid #efeeee;
     font-weight: 800;
     font-size: 18px;
@@ -126,5 +134,28 @@ legend {
       margin-top: 10px; }
       .personal-form .personal-btn-wrapper .personal-save .personal-save-btn {
         padding: 5px; }
+  .personal-form .select-stack {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%; }
+  .personal-form .selected-stack {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: #ebebeb;
+    border-radius: 5px; }
+  .personal-form .stack-span {
+    margin-left: 10px; }
+
+.stack-label {
+  margin-top: 20px; }
+
+.css-t3ipsp-control {
+  border-color: black !important;
+  box-shadow: none !important; }
+
+.css-t3ipsp-control:hover {
+  border-color: #fff !important; }
 
 /*# sourceMappingURL=personal-setting.css.map */

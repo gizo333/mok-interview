@@ -76,55 +76,41 @@ legend {
 .card-container {
   display: flex;
   position: relative;
-  height: 25vh;
+  min-height: 25vh;
+  height: auto;
   width: 60vw;
-  background-color: red;
   margin-top: 70px;
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(95, 92, 92, 0.2) 0%, rgba(56, 49, 49, 0) 100%), #eeeeee; }
-  .card-container .card-photo {
-    position: absolute;
-    background-color: azure;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    top: 20px;
-    left: 20px; }
-  .card-container .card-name-age {
+  .card-container .card-info {
+    display: flex;
     width: 100%;
-    display: flex;
-    position: relative;
-    align-items: flex-end;
-    gap: 10px;
-    font-size: 20px;
-    margin-bottom: 40px;
-    margin-left: 10px;
-    white-space: nowrap; }
-  .card-container .card-email {
+    height: 100px;
+    margin-top: 20px; }
+    .card-container .card-info .card-photo {
+      background-color: azure;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: 0 50px 0 30px;
+      white-space: nowrap; }
+    .card-container .card-info .card-info-ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .card-container .card-info .card-info-ul .card-info-li {
+        margin-bottom: 10px;
+        margin-right: 5px; }
+  .card-container .btn-wrapper {
+    margin-right: 30px;
     position: absolute;
-    width: 300px;
-    font-size: 20px;
-    bottom: 10px;
-    left: 10px; }
-    .card-container .card-email .email {
-      color: #6e6e6e; }
-  .card-container .card-profile {
-    display: flex;
-    align-items: flex-end;
-    white-space: nowrap;
-    margin-right: 10vw;
-    margin-bottom: 4.3vh;
-    font-size: 20px; }
-    .card-container .card-profile .profile {
-      border: 1px solid #6e6e6e;
-      border-radius: 10px; }
-      .card-container .card-profile .profile .profile-btn {
-        padding: 5px;
-        border-radius: 10px;
-        transition: background-color 0.3s ease; }
-    .card-container .card-profile .profile-btn:hover {
-      background-color: #b3b6b8;
-      outline: none; }
+    right: 0;
+    bottom: 30px;
+    border: 1px solid gray;
+    border-radius: 10px; }
+    .card-container .btn-wrapper .profile-btn {
+      padding: 3px;
+      white-space: nowrap; }
   @media (max-width: 1160px) {
     .card-container .card-profile {
       margin-left: 30px;

@@ -7,6 +7,8 @@ import { useState } from 'react';
 import MobileMenu from './setting-mobile';
 import SettingList from './setting-menu-list';
 
+// главное меню ЛК
+
 //меню сделать стики!
 //все кнопки в данной директории засунуть в redux
 //сделать плавную анимацию для открытия и закрытия меню

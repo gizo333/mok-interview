@@ -1,7 +1,10 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import settingImage from '../../img/setting.svg';
+import users from '../../img/users-svg.svg';
+import news from '../../img/news.svg';
+import telegram from '../../img/telegram-left.svg';
 import '../../styles/leftMenu.css';
 
 
@@ -16,6 +19,9 @@ function LeftMenu({ day, onToggleCalendar}) {
       }
     };
 
+
+    
+
     return (
        
         <div className="lm-container">
@@ -24,15 +30,18 @@ function LeftMenu({ day, onToggleCalendar}) {
                 <li className="lm-li">
                     <button className="lm-btn-day" onClick={handleButtonClick}>{buttonText}</button>
                 </li>
-                <li></li>
-                <li></li>
+              
             </ul>
 
+            <div className="menu-left">
+            <img className="menu-polzovateli" src={news} alt="" title="Новости" />
+            <img className="menu-polzovateli" src={users} alt="" title="Пользователи"  />
+            <img className="menu-polzovateli" src={telegram} alt="" title="Канал в телеграм"  />
+            </div>
+           
             <div className="welcome-container">
                 <ul className="welcome-ul">
                     <li className="welcome-li"> 
-                    
-               
                     {token ? (
                         <Link to='/setting'>
                             <img className="setting-img" src={settingImage} alt="Authenticated" />
@@ -42,12 +51,6 @@ function LeftMenu({ day, onToggleCalendar}) {
                                 <button className="welcome-btn">Log In</button>
                             </Link>
                         )}
-
-
-
-
-                
-                            
                      </li>
                 </ul>
             </div>

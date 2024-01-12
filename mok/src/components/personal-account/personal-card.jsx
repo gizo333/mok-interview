@@ -1,32 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/personal-card.css'
+import avatar from '../../img/user-avatar.svg'
 
 //адаптировать под мобильные устройства лучше
 //кнопку {просмотреть профиль}, пересмотреть верстку
 
-function PersonalCard() {
+function PersonalCard({ onProfileButtonClick }) {
     return ( 
         <div className='card-container'>
-            <div className='card-photo'>
-                <img src="" alt="" />
-            </div>
-
-            <div className='card-name-age'>
-                <p className='name'>Василий</p>
-                <p className='last-name'>Иванов:</p>
-                <p className='age'>35 лет</p>
-            </div> 
-            <div className='card-profile'>
-            <Link className='profile'>  <button className='profile-btn'>Просмотреть профиль</button> </Link>
-            </div>
-            <div className='card-email'>
-                <p className='email'>sobaka@mail.com</p>
-            </div>
-
+            <div className='card-info'>
             
+            <img className='card-photo' src={avatar} alt="" />
+        
+        <ul className='card-info-ul'>
+            <li className='card-info-li'>Василий Иванов</li>
+            <li className='card-info-li'> Telegram: @Artmkhl</li>
+            <li className='card-info-li'> GitHb: Click</li>
+        </ul>
+            </div>
+            <div className='btn-wrapper'>
+            <button className='profile-btn' onClick={onProfileButtonClick}>Просмотреть профиль</button>
+            </div>
+            </div>
 
-        </div>
      );
 }
 

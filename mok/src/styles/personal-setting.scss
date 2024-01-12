@@ -15,7 +15,7 @@
     
     .personal-name{
         width: 60vw;
-        height: 300px;
+        height: auto;
         margin-top: 5px;
         border-top: 1px solid #cac9c9;
         
@@ -38,6 +38,16 @@
         color: rgb(108, 108, 108);
         letter-spacing: 2px;
 
+    }
+
+    .info-stack{
+        width: 200px;
+        margin: 20px 0 10px 30px;
+        border-bottom: 1px solid #efeeee;
+        font-weight: 800;
+        font-size: 18px;
+        color: rgb(108, 108, 108);
+        letter-spacing: 2px;
     }
     
 
@@ -79,5 +89,39 @@
          }
     }
 
-        
+    .select-stack{
+        margin-top: 10px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .selected-stack{
+        margin-top: 10px;
+        display: flex;
+        width: 100%;
+        height: auto;
+        background-color: rgb(235, 235, 235);
+        border-radius: 5px;
+    }
+
+    .stack-span{
+        margin-left: 10px;
+       
+    }
+
+    
 }
+
+
+.stack-label{
+    margin-top: 20px;
+}
+.css-t3ipsp-control{
+    border-color: rgb(0, 0, 0) !important;
+    box-shadow: none !important;
+}
+
+.css-t3ipsp-control:hover {
+    border-color: #fff !important;
+}
+
