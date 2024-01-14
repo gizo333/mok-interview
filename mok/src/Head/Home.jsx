@@ -20,6 +20,7 @@ function Home() {
 
   return (
     <div className="HomePage">
+      
       <header className="HomeHeader">
         <LeftMenu day={day} onToggleCalendar={handleToggleCalendar} />
         <Calendar currentDate={currentDate} onDateChange={handleDateChange} isVisible={calendarVisible} />

@@ -10,6 +10,7 @@ function PersonalCard({ onProfileButtonClick }) {
     return ( 
         <div className='card-container'>
             <div className='card-info'>
+                
             
             <img className='card-photo' src={avatar} alt="" />
         

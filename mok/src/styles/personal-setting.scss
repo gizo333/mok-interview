@@ -100,7 +100,6 @@
         display: flex;
         width: 100%;
         height: auto;
-        background-color: rgb(235, 235, 235);
         border-radius: 5px;
     }
 
@@ -125,3 +124,42 @@
     border-color: #fff !important;
 }
 
+.css-12a83d4-MultiValueRemove{
+    display: none !important;
+}
+
+.stack-ul{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+
+    .stack-li{
+        background-color: rgb(233, 233, 233);
+         border-radius: 5px;
+         padding: 10px;
+         display: flex;
+         margin: 0 auto;
+        
+   }
+
+   .remove-stack{
+    width: 15px;
+    height: auto;
+    font-size: 0px;
+    
+
+    .stack-img{
+        width: 15px;
+        height: auto;
+        margin-left: 3px;
+        
+       }
+
+   }
+
+   
+   
+}
+
+  
