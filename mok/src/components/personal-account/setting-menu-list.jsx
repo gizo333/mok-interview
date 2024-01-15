@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import arrowLeft from '../../img/arrow-left.svg'
+import InDev from '../INdevelopment/dev';
 import '../../styles/mobile-menu.css'
 
 //МЕНЮ ДЛЯ МОБИЛКИ ОСНОВНОЕ
@@ -35,6 +36,7 @@ function SettingList({ onSettingButtonClick }) {
                     <hr className='line' />
                     <p className='setting-pr'>Настройки приложения</p>
                     <li className='setting-acc-li'>
+                    
                      <Link> <button className='setting-btn'onClick={() => handleBtn('Основные')}>Основные</button> </Link> 
                     </li>
                     <li className='setting-acc-li'>

@@ -1,15 +1,17 @@
-@charset "UTF-8";
 .calendar {
   width: 200px;
   height: 100%;
   margin: 5px;
   padding-bottom: 10px;
   border-bottom: 1px solid #d9d9d9;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out; }
+
+.calendar:not(.hidden) {
   opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  position: relative; }
+  visibility: visible; }
 
 .calendar::before {
   content: '';
@@ -19,12 +21,6 @@
   height: 100%;
   width: 1px;
   background-color: #d9d9d9; }
-
-.calendar.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  /* Небольшой сдвиг вверх при скрытии для плавности */ }
 
 .calendar-header {
   display: flex;
@@ -50,7 +46,12 @@
 .empty-day {
   visibility: hidden; }
 
-.current-day {
-  background-color: #ababb0; }
+.selected-day {
+  background-color: rgba(154, 195, 241, 0.9) !important;
+  color: red;
+  font-weight: bold; }
+
+.current-week {
+  background-color: rgba(154, 195, 241, 0.3); }
 
 /*# sourceMappingURL=calendar.css.map */

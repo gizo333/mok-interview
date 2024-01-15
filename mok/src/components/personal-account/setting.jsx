@@ -6,7 +6,6 @@ import PersonalSetting from './personal-setting';
 import { useState } from 'react';
 import MobileMenu from './setting-mobile';
 import SettingList from './setting-menu-list';
-
 // главное меню ЛК
 
 //меню сделать стики!
@@ -57,11 +56,13 @@ function Setting() {
                     </li>
                     <hr className='line' />
                     <p className='setting-pr'>Настройки приложения</p>
+                    
                     <li className='setting-acc-li'>
+                    
                      <Link> <button className='setting-btn'onClick={() => handleBtn('Основные')}>Основные</button> </Link> 
                     </li>
                     <li className='setting-acc-li'>
-                    <Link> <button className='setting-btn'onClick={() => handleBtn('Внешний вид')}>Внешний вид</button> </Link> 
+                    <Link> <button className='setting-btn'onClick={() => handleBtn('Внешний вид')}>Внешний вид </button> </Link> 
                     </li>
                     <hr className='line' />
                     <li className='setting-acc-li'>

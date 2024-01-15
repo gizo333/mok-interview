@@ -160,6 +160,15 @@ legend {
 .css-12a83d4-MultiValueRemove {
   display: none !important; }
 
+.ttt {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  z-index: 100;
+  right: 50px;
+  bottom: 62px; }
+
 .stack-ul {
   display: flex;
   flex-direction: row;

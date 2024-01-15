@@ -6,6 +6,7 @@ import js from '../../img/js.svg'
 import back from '../../img/back.svg'
 import avatar from '../../img/user-avatar.svg'
 import '../../styles/presonal-card-reverse.css'
+import InDev from '../INdevelopment/dev';
 
 // переделать дизайн карточки 
 // улучшить адаптив
@@ -20,8 +21,9 @@ function PersonalCardReverse({ onProfileButtonClick }) {
     
     return ( 
         <div className='card-container-reserve-wrapper' >
+            
         <div className='card-container-reserve'>
-
+        <InDev / >
         
 
             <div className='card-info'>

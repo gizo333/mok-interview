@@ -8,6 +8,7 @@ import deleteStack from '../../img/delete-stack.svg'
 import '../../styles/personal-setting.css'
 import PersonalCard from './personal-card';
 import PersonalCardReverse from './personal-card-reverse';
+import InDev from '../INdevelopment/dev';
 
 // КНОПКУ 'сохранить' УБРАТЬ, ВМЕСТО НЕЕ БУДЕТ 
 //СОХРАНЯТЬСЯ ЕСЛИ УБРАЛ ФОКУС С ИНПУТА
@@ -202,6 +203,13 @@ function PersonalSetting() {
     
 
 
+
+
+
+
+
+
+
     return ( 
        
         <div className='personal-container'>
@@ -214,7 +222,8 @@ function PersonalSetting() {
       <p className='info-stack'>Стек:</p>
 
       <div className='personal-form-input'>
-        <label htmlFor='stack'>Выберите стек(и):</label>
+        <label htmlFor='stack'>Выберите стек:</label>
+      <p className='ttt'></p>
         <Select
           className='select-stack'
           id='stack'
@@ -243,8 +252,26 @@ function PersonalSetting() {
   </div>
 </div>
 
+<div className='personal-name'>
+                <div className='personal-form-wrapper'>
+                    <form className='personal-form' >
+                    <InDev / >
+                    <p className='info'>О себе:</p>
+                        <label htmlFor="name"></label>
+                        <br />
+                        <input className='username' placeholder='В кратце о себе, опыт и тп...' type="text" id='name' name='name' value={contactFormData.name} onChange={handleInputChange} />
+
+                       
+                        <div className='personal-btn-wrapper'>
+                        <Link className='personal-save'> <button className='personal-save-btn' onClick={sendInfo}>Сохранить</button> </Link>
+                        </div>
+                        </form>
+                </div>
+            </div>
 
 
+
+           
 
 
 
@@ -268,12 +295,31 @@ function PersonalSetting() {
                 </div>
             </div>
 
+            <div className='personal-name'>
+                <div className='personal-form-wrapper'>
+                    <form className='personal-form' >
+                    <p className='info'>Контакты:</p>
 
+                        <label htmlFor="telegram">Telegram:</label>
+                        <br />
+                        <input className='last-name' type="text" id='telegram' name='telegram' value={contactFormData.telegram} onChange={handleInputChange} />
+
+                        <label htmlFor="github">GitHub:</label>
+                        <br />
+                        <input className='last-name' type="text" id='github' name='github' value={contactFormData.github} onChange={handleInputChange} />
+
+                        <div className='personal-btn-wrapper'>
+                        <Link className='personal-save'> <button className='personal-save-btn' onClick={sendInfo}>Сохранить</button> </Link>
+                        </div>
+                        </form>
+                </div>
+            </div>
             
 
             <div className='personal-name'>
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
+                      <InDev / >
                         <p className='info'>Дата рождения:</p>
                         <label htmlFor="day">День:</label>
                         <br />
@@ -295,25 +341,7 @@ function PersonalSetting() {
             </div>
 
 
-            <div className='personal-name'>
-                <div className='personal-form-wrapper'>
-                    <form className='personal-form' >
-                    <p className='info'>Контакты:</p>
-
-                        <label htmlFor="telegram">Telegram:</label>
-                        <br />
-                        <input className='last-name' type="text" id='telegram' name='telegram' value={contactFormData.telegram} onChange={handleInputChange} />
-
-                        <label htmlFor="github">GitHub:</label>
-                        <br />
-                        <input className='last-name' type="text" id='github' name='github' value={contactFormData.github} onChange={handleInputChange} />
-
-                        <div className='personal-btn-wrapper'>
-                        <Link className='personal-save'> <button className='personal-save-btn' onClick={sendInfo}>Сохранить</button> </Link>
-                        </div>
-                        </form>
-                </div>
-            </div>
+           
 
             
 

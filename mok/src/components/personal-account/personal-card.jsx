@@ -1,17 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../../styles/personal-card.css'
 import avatar from '../../img/user-avatar.svg'
+import InDev from '../INdevelopment/dev';
 
 //адаптировать под мобильные устройства лучше
 //кнопку {просмотреть профиль}, пересмотреть верстку
 
 function PersonalCard({ onProfileButtonClick }) {
+
+
     return ( 
         <div className='card-container'>
+           <InDev / >
             <div className='card-info'>
                 
-            
+             
             <img className='card-photo' src={avatar} alt="" />
         
         <ul className='card-info-ul'>
