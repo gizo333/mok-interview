@@ -82,10 +82,16 @@ legend {
     flex: 0 0 auto;
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 10vh;
     background-color: white;
     border-top: 1px solid #dbdbdb;
     border-bottom: 1px solid #dbdbdb; }
+    .head-calendar .calendar-view-days-container .calendar-view-block-start {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      flex: 0 0 28px;
+      border-right: 1px solid #dbdbdb; }
     .head-calendar .calendar-view-days-container .calendar-view-days-today {
       display: flex;
       align-items: center;
@@ -121,8 +127,67 @@ legend {
       .head-calendar .calendar-view-days-container .next-week .arrow-right {
         width: 30px;
         height: 30px; }
-
-.daysOfWeek {
-  cursor: pointer; }
+  .head-calendar .calendar-view-table-conteiner {
+    display: flex;
+    flex-direction: row;
+    height: 1000px;
+    overflow-y: scroll; }
+    .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner {
+      display: flex;
+      flex: 0 0 28px;
+      height: 1000px;
+      flex-direction: column;
+      background-color: #ececec;
+      border-right: 1px solid #dbdbdb;
+      color: #adadad;
+      background-color: #fff;
+      position: relative; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner .calendar-view-time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        font-size: 10px;
+        height: 100%; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner .calendar-view-time:nth-child(1) {
+        background-color: #c23b3b;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        position: absolute;
+        height: 44px;
+        width: 27px; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner .calendar-view-time:nth-child(2) {
+        background-color: #f2f2f2;
+        border-bottom: 1px solid #ccc;
+        position: absolute;
+        height: 44px;
+        width: 27px;
+        top: 43px; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner .calendar-view-time:nth-child(3) {
+        background-color: #f2f2f2;
+        border-bottom: 1px solid #ccc;
+        position: absolute;
+        height: 43px;
+        width: 27px;
+        top: 87px; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-time-conteiner .calendar-view-time:nth-child(4) {
+        background-color: #f2f2f2;
+        border-bottom: 1px solid #ccc;
+        position: absolute;
+        height: 43px;
+        width: 27px;
+        top: 130px; }
+    .head-calendar .calendar-view-table-conteiner .calendar-view-column {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      border-right: 1px solid #dbdbdb;
+      background-color: #ececec;
+      padding-top: 10px; }
+      .head-calendar .calendar-view-table-conteiner .calendar-view-column .calendar-view-table {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-top: 1px solid #dbdbdb; }
 
 /*# sourceMappingURL=headCalendar.css.map */

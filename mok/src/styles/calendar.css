@@ -4,23 +4,25 @@
   margin: 5px;
   padding-bottom: 10px;
   border-bottom: 1px solid #d9d9d9;
-  position: relative;
+  position: relative; }
+
+.calendar-enter {
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out; }
+  transform: translateX(-20px); }
 
-.calendar:not(.hidden) {
+.calendar-enter-active {
   opacity: 1;
-  visibility: visible; }
+  transform: translateX(0);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out; }
 
-.calendar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -5px;
-  height: 100%;
-  width: 1px;
-  background-color: #d9d9d9; }
+.calendar-exit {
+  opacity: 1;
+  transform: translateX(0); }
+
+.calendar-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out; }
 
 .calendar-header {
   display: flex;
@@ -43,15 +45,9 @@
   border: 1px solid #ddd;
   cursor: pointer; }
 
-.empty-day {
-  visibility: hidden; }
-
 .selected-day {
   background-color: rgba(154, 195, 241, 0.9) !important;
   color: red;
   font-weight: bold; }
-
-.current-week {
-  background-color: rgba(154, 195, 241, 0.3); }
 
 /*# sourceMappingURL=calendar.css.map */

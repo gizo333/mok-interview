@@ -163,7 +163,7 @@ legend {
 .ttt {
   width: 15px;
   height: 15px;
-  background-color: white;
+  background-color: #f7f7f7;
   position: absolute;
   z-index: 100;
   right: 50px;
@@ -187,5 +187,11 @@ legend {
       width: 15px;
       height: auto;
       margin-left: 3px; }
+
+.css-13cymwt-control {
+  background-color: #f7f7f7 !important; }
+
+.css-t3ipsp-control {
+  background-color: #f7f7f7 !important; }
 
 /*# sourceMappingURL=personal-setting.css.map */

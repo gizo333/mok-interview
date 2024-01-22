@@ -10,6 +10,7 @@
     height: 100dvh;
     border-right: 1px solid rgb(217, 217, 217);
     position: relative;
+    padding: 0 7px 0 7px;
     
 
     .menu-left{
@@ -51,7 +52,6 @@
     cursor: pointer;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .lm-btn-day::before {

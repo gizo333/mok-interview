@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import '../../styles/calendar.css';
 
 function Calendar({ isVisible, onDateClick }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-  
-  
 
   const daysInMonth = (date) => {
     const year = date.getFullYear();
@@ -70,8 +69,11 @@ function Calendar({ isVisible, onDateClick }) {
     setSelectedDate(null);
   };
 
+  
+
   return (
-    <div className={`calendar ${isVisible ? '' : 'hidden'}`} style={{ display: isVisible ? 'block' : 'none' }}>
+    <CSSTransition in={isVisible} timeout={300} classNames="calendar" unmountOnExit>
+    <div className="calendar">
 
       <div className="calendar-header">
         <button onClick={prevMonth}>&lt;</button>
@@ -82,6 +84,7 @@ function Calendar({ isVisible, onDateClick }) {
         {generateCalendar()}
       </div>
     </div>
+    </CSSTransition>
   );
 };
 

@@ -202,14 +202,6 @@ function PersonalSetting() {
     };
     
 
-
-
-
-
-
-
-
-
     return ( 
        
         <div className='personal-container'>
@@ -255,7 +247,7 @@ function PersonalSetting() {
 <div className='personal-name'>
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
-                    <InDev / >
+               
                     <p className='info'>О себе:</p>
                         <label htmlFor="name"></label>
                         <br />
@@ -268,11 +260,6 @@ function PersonalSetting() {
                         </form>
                 </div>
             </div>
-
-
-
-           
-
 
 
             <div className='personal-name'>
@@ -319,7 +306,7 @@ function PersonalSetting() {
             <div className='personal-name'>
                 <div className='personal-form-wrapper'>
                     <form className='personal-form' >
-                      <InDev / >
+                      <InDev />
                         <p className='info'>Дата рождения:</p>
                         <label htmlFor="day">День:</label>
                         <br />
@@ -339,12 +326,6 @@ function PersonalSetting() {
                         </form>
                 </div>
             </div>
-
-
-           
-
-            
-
 
 
         </div>

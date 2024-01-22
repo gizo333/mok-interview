@@ -82,7 +82,8 @@ legend {
   width: 80px;
   height: 100dvh;
   border-right: 1px solid #d9d9d9;
-  position: relative; }
+  position: relative;
+  padding: 0 7px 0 7px; }
   .lm-container .menu-left {
     border-top: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
@@ -112,8 +113,7 @@ legend {
   border: none;
   cursor: pointer;
   background-color: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); }
 
 .lm-btn-day::before {
   margin-top: 5px;
