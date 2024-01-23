@@ -23,7 +23,7 @@ function PersonalCardReverse({ onProfileButtonClick }) {
         <div className='card-container-reserve-wrapper' >
             
         <div className='card-container-reserve'>
-        <InDev / >
+        
         
 
             <div className='card-info'>

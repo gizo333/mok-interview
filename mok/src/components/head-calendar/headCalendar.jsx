@@ -1,22 +1,30 @@
-// В компоненте HeadCalendar
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Calendar from '../calendar-comp/calendar';
 import '../../styles/headCalendar.css';
-import ArrowLeft from '../../img/previous-week.svg';
-import ArrowRight from '../../img/next-week.svg';
 
-function HeadCalendar({ onDateClick, selectedDate }) {
+const HeadCalendar = ({ onDateClick, selectedDate }) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const [currentWeek, setCurrentWeek] = useState(new Date());
-  const columnCount = 23;
-  const tableCount = 7;
+  const [currentHour] = useState(getCurrentHourIndex());
+  const columnCount = 7;
+  const tableCount = 23;
+  const formattedCurrentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+  function getCurrentHourIndex() {
+    return new Date().getHours();
+  }
+
+  
+  //устанавливаем текущую неделю равной выбранной дате в календаре
   useEffect(() => {
     if (selectedDate) {
       setCurrentWeek(selectedDate);
     }
   }, [selectedDate]);
 
+
+
+  // рендер 7 дней в шапке (просто отображает только 7)
   const getDatesForWeek = (startOfWeek) => {
     const datesForWeek = [];
 
@@ -30,10 +38,10 @@ function HeadCalendar({ onDateClick, selectedDate }) {
   };
 
 
-  //рендер блока дней в шапке страницы
+// рендер верхнего блока с датами текущей недели
   const renderDays = () => {
     const datesForWeek = getDatesForWeek(currentWeek);
-
+  
     return datesForWeek.map((date, index) => (
       <div key={index} className={index === 0 ? 'calendar-view-days-today' : 'calendar-view-days-all'} onClick={() => handleDateClick(date)}>
         <p className='daysOfWeek'>{daysOfWeek[date.getDay()]}</p>
@@ -43,67 +51,74 @@ function HeadCalendar({ onDateClick, selectedDate }) {
   };
 
 
-   // двигаем недели вперед назад
+  
 
-  // const handlePrevWeek = () => {
-  //   const prevWeek = new Date(currentWeek);
-  //   prevWeek.setDate(currentWeek.getDate() - 7);
-  //   setCurrentWeek(prevWeek);
-  // };
+// рендерит текущее время
+  const renderTableBlocks = () => {
+    return Array.from({ length: columnCount }, (_, columnIndex) => (
+      <div key={columnIndex} className="calendar-view-column">
 
- 
+        {Array.from({ length: tableCount }, (_, tableIndex) => {
+          const timeFraction = tableIndex / tableCount;
+          const isCurrentHour = tableIndex === currentHour;
+          const isCurrentTime = isCurrentHour || (timeFraction > 0.5 && timeFraction < currentHour % 1);
+  
+          return (
+            <div key={tableIndex} className="calendar-view-table">
+              {isCurrentTime && columnIndex === 0 && (
+                <div className="dynamic-time">
+                  {formattedCurrentTime}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    ));
+  };
 
-  // const handleNextWeek = () => {
-  //   const nextWeek = new Date(currentWeek);
-  //   nextWeek.setDate(currentWeek.getDate() + 7);
-  //   setCurrentWeek(nextWeek);
-  // };
 
+  // выбор даты в календаре
   const handleDateClick = (clickedDate) => {
     if (onDateClick) {
       onDateClick(clickedDate);
     }
   };
 
-// рендер часов с 00 до 23:00
+
+// рендер статического времени
   const renderHours = () => {
     const hours = [];
-
+  
     for (let i = 0; i < 24; i++) {
       const formattedHour = i.toString().padStart(2, '0');
-      hours.push(<div key={i} className='calendar-view-time'>{formattedHour}:00</div>);
+      hours.push(
+        <div key={i} className="calendar-view-time">
+          <div>{formattedHour}:00</div>
+         
+        </div>
+      );
     }
-
     return hours;
   };
- 
   
- 
+
+  
 
   return (
     <div className='head-calendar'>
       <div className='calendar-view-days-container'>
         <div className='calendar-view-block-start'></div>
-        {/* <button className='previous-week' onClick={handlePrevWeek}><img className='arrow-left' src={ArrowLeft} alt="" /></button>
-        <button className='next-week' onClick={handleNextWeek}><img className='arrow-right' src={ArrowRight} alt="" /></button> */}
         <Calendar selectedDate={selectedDate} onDateClick={handleDateClick} />
         {renderDays()}
-        
       </div>
-
+  
       <div className='calendar-view-table-conteiner'>
-        <div  className='calendar-view-time-conteiner'>
-
+        <div className='calendar-view-time-conteiner'>
           {renderHours()}
         </div>
-        {Array.from({ length: tableCount }, (_, columnIndex) => (
-        <div key={columnIndex} className="calendar-view-column">
-          {Array.from({ length: columnCount }, (_, tableIndex) => (
-            <div key={tableIndex} className="calendar-view-table"></div>
-          ))}
-        </div>
-      ))}
-        </div>
+        {renderTableBlocks()}
+      </div>
     </div>
   );
 }

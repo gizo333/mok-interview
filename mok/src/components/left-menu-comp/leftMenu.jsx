@@ -23,8 +23,9 @@ function LeftMenu({ day, onToggleCalendar}) {
     
 
     return (
-       
         <div className="lm-container">
+
+            <div className='cont'>
             
             <ul className="lm-ul">
                 <li className="lm-li">
@@ -54,9 +55,8 @@ function LeftMenu({ day, onToggleCalendar}) {
                      </li>
                 </ul>
             </div>
-
+            </div>
         </div>
-    
     );
 }
 

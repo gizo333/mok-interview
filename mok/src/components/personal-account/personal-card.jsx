@@ -11,7 +11,7 @@ function PersonalCard({ onProfileButtonClick }) {
 
     return ( 
         <div className='card-container'>
-           <InDev / >
+           
             <div className='card-info'>
                 
              
