@@ -5,6 +5,7 @@ import '../../styles/headCalendar.css';
 const HeadCalendar = ({ onDateClick, selectedDate }) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const [currentWeek, setCurrentWeek] = useState(new Date());
+  const [selectedCell, setSelectedCell] = useState(null);
   const [currentHour] = useState(getCurrentHourIndex());
   const columnCount = 7;
   const tableCount = 23;
@@ -39,43 +40,66 @@ const HeadCalendar = ({ onDateClick, selectedDate }) => {
 
 
 // рендер верхнего блока с датами текущей недели
-  const renderDays = () => {
-    const datesForWeek = getDatesForWeek(currentWeek);
-  
-    return datesForWeek.map((date, index) => (
-      <div key={index} className={index === 0 ? 'calendar-view-days-today' : 'calendar-view-days-all'} onClick={() => handleDateClick(date)}>
+const renderDays = () => {
+  const datesForWeek = getDatesForWeek(currentWeek);
+
+  return datesForWeek.map((date, index) => (
+    <div key={index} className={`calendar-view-days ${index === 0 ? 'calendar-view-days-today' : 'calendar-view-days-all'}`}>
+      <div
+        className={`calendar-view-column ${getDateClass(date)}`}
+        onClick={(e) => handleCellClick(index, 0, date)} // Передаем дату в функцию handleCellClick
+      >
         <p className='daysOfWeek'>{daysOfWeek[date.getDay()]}</p>
         <p>{date.getDate()}</p>
       </div>
-    ));
-  };
+    </div>
+  ));
+};
 
+const getDateClass = (date) => {
+  const currentDate = new Date();
+  return date.toDateString() === currentDate.toDateString() ? 'current-date' : '';
+};
+
+// выберает определенную ячейку в таблице при клике
+const handleCellClick = (columnIndex, tableIndex, date) => {
+  setSelectedCell(`${columnIndex}-${tableIndex}`);
+  console.log(columnIndex, tableIndex);
+  console.log(date);
+
+};
 
   
 
-// рендерит текущее время
-  const renderTableBlocks = () => {
-    return Array.from({ length: columnCount }, (_, columnIndex) => (
-      <div key={columnIndex} className="calendar-view-column">
+// рендерит текущее время и блоки
+const renderTableBlocks = () => {
+  return Array.from({ length: columnCount }, (_, columnIndex) => (
+    <div key={columnIndex} className="calendar-view-column">
+      {Array.from({ length: tableCount }, (_, tableIndex) => {
+        const timeFraction = tableIndex / tableCount;
+        const isCurrentHour = tableIndex === currentHour;
+        const isCurrentTime = isCurrentHour || (timeFraction > 0.5 && timeFraction < currentHour % 1);
+        const isSelected = selectedCell === `${columnIndex}-${tableIndex}`;
+        const date = getDatesForWeek(currentWeek)[columnIndex];
 
-        {Array.from({ length: tableCount }, (_, tableIndex) => {
-          const timeFraction = tableIndex / tableCount;
-          const isCurrentHour = tableIndex === currentHour;
-          const isCurrentTime = isCurrentHour || (timeFraction > 0.5 && timeFraction < currentHour % 1);
-  
-          return (
-            <div key={tableIndex} className="calendar-view-table">
-              {isCurrentTime && columnIndex === 0 && (
-                <div className="dynamic-time">
-                  {formattedCurrentTime}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    ));
-  };
+        return (
+          <div
+            key={tableIndex}
+            className={`calendar-view-table ${isSelected ? 'selected' : ''}`}
+            onClick={() => handleCellClick(columnIndex, tableIndex, date)}
+          >
+            {isCurrentTime && columnIndex === 0 && (
+              <div className="dynamic-time">
+                {formattedCurrentTime}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  ));
+};
+
 
 
   // выбор даты в календаре

@@ -124,6 +124,7 @@
                 min-height: 24px;
                 display: flex;
                 align-items: stretch;
+                cursor: pointer;
             }
         }
         
@@ -144,5 +145,12 @@
  
 
 .daysOfWeek{
+    cursor: pointer;
+}
+
+
+.selected{
+    background-color: rgba(13, 0, 188, 0.287);
+    border-radius: 5px;
     cursor: pointer;
 }
