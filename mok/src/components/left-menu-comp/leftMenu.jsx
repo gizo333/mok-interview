@@ -9,7 +9,7 @@ import '../../styles/leftMenu.css';
 
 
 
-function LeftMenu({ day, onToggleCalendar}) {
+function LeftMenu({ day, onToggleCalendar, onToggleUsers}) {
     const buttonText = day ? day.toString() : "No date";
     const token = Cookies.get('token');
 
@@ -17,7 +17,17 @@ function LeftMenu({ day, onToggleCalendar}) {
       if (onToggleCalendar) {
         onToggleCalendar();
       }
+     
     };
+
+    const handleButtonClickUsers = () => {
+        if (onToggleUsers) {
+            onToggleUsers();
+        }
+       
+      };
+
+
 
 
     
@@ -36,7 +46,7 @@ function LeftMenu({ day, onToggleCalendar}) {
 
             <div className="menu-left">
             <img className="menu-polzovateli" src={news} alt="" title="Новости" />
-            <img className="menu-polzovateli" src={users} alt="" title="Пользователи"  />
+            <img className="menu-polzovateli" onClick={handleButtonClickUsers} src={users} alt="" title="Пользователи"  />
             <img className="menu-polzovateli" src={telegram} alt="" title="Канал в телеграм"  />
             </div>
            

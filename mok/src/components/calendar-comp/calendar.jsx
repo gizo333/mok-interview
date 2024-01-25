@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../../styles/calendar.css';
 
 function Calendar({ isVisible, onDateClick }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
+  const [currentWeek, setCurrentWeek] = useState(0);
+
+  useEffect(() => {
+    setCurrentWeek(getWeekNumber(new Date()));
+  }, [currentDate]);
 
   const daysInMonth = (date) => {
     const year = date.getFullYear();
@@ -22,42 +27,69 @@ function Calendar({ isVisible, onDateClick }) {
     const days = [];
     const totalDays = daysInMonth(currentDate);
     const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
-
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push(<div key={`empty-${i}`} className="empty-day" />);
+    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDay();
+  
+    const prevMonthTotalDays = daysInMonth(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+  
+    // Добавляем дни предыдущего месяца
+    for (let i = firstDayOfMonth - 1; i >= 0; i--) {
+      const day = prevMonthTotalDays - i;
+      days.push(
+        <div key={`prev-${day}`} className="other-month-day">
+          {day}
+        </div>
+      );
     }
-
+  
+    // Добавляем дни текущего месяца
     for (let i = 1; i <= totalDays; i++) {
+      const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
       const isCurrentDay = currentDate.getDate() === i;
       const isSelectedDay = selectedDate && selectedDate.getDate() === i;
-      const isInCurrentWeek = getWeekNumber(currentDate) === getWeekNumber(new Date(currentDate.getFullYear(), currentDate.getMonth(), i));
-
+      const isInCurrentWeek = currentWeek === getWeekNumber(date);
+  
       let dayClassName = 'calendar-day';
       if (isCurrentDay) dayClassName += ' current-day';
       if (isSelectedDay) dayClassName += ' selected-day';
       if (isInCurrentWeek) dayClassName += ' current-week';
-
+  
+      // Добавляем класс для последних дней текущего месяца
+      if (i >= totalDays - lastDayOfMonth + 1) {
+        dayClassName += ' end-of-month';
+      }
+  
       days.push(
-        <div key={i} className={dayClassName} onClick={() => handleDayClick(i)}>
+        <div key={`current-${i}`} className={dayClassName} onClick={() => handleDayClick(i)}>
           {i}
         </div>
       );
     }
-
+  
+    // Добавляем дни следующего месяца
+    for (let i = 1; i <= 6 - lastDayOfMonth; i++) {
+      days.push(
+        <div key={`next-${i}`} className="other-month-day">
+          {i}
+        </div>
+      );
+    }
+  
     return days;
   };
-
+  
   
 
   const handleDayClick = (day) => {
-    console.log("Clicked on day:", day);
     const newSelectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
     setSelectedDate(newSelectedDate);
-
+    const selectedWeek = getWeekNumber(newSelectedDate);
+    setCurrentWeek(selectedWeek);
+    
     if (onDateClick) {
       onDateClick(newSelectedDate);
     }
   };
+  
 
   const prevMonth = () => {
     setCurrentDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1));
@@ -69,21 +101,18 @@ function Calendar({ isVisible, onDateClick }) {
     setSelectedDate(null);
   };
 
-  
-
   return (
     <CSSTransition in={isVisible} timeout={300} classNames="calendar" unmountOnExit>
-    <div className="calendar">
-
-      <div className="calendar-header">
-        <button onClick={prevMonth}>&lt;</button>
-        <h2 className='calendar-data'>{currentDate.toLocaleString('en-US', { month: 'long', year: 'numeric' })}</h2>
-        <button onClick={nextMonth}>&gt;</button>
+      <div className="calendar">
+        <div className="calendar-header">
+          <button onClick={prevMonth}>&lt;</button>
+          <h2 className='calendar-data'>{currentDate.toLocaleString('en-US', { month: 'long', year: 'numeric' })}</h2>
+          <button onClick={nextMonth}>&gt;</button>
+        </div>
+        <div className="calendar-grid">
+          {generateCalendar()}
+        </div>
       </div>
-      <div className="calendar-grid">
-        {generateCalendar()}
-      </div>
-    </div>
     </CSSTransition>
   );
 };

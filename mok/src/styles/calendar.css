@@ -1,5 +1,5 @@
 .calendar {
-  width: 200px;
+  width: 300px;
   height: 100%;
   margin: 5px;
   padding-bottom: 10px;
@@ -43,11 +43,26 @@
   font-size: 12px;
   padding: 5px;
   border: 1px solid #ddd;
+  border-radius: 3px;
   cursor: pointer; }
 
 .selected-day {
   background-color: rgba(154, 195, 241, 0.9) !important;
   color: red;
   font-weight: bold; }
+
+.current-week {
+  background-color: rgba(154, 195, 241, 0.3); }
+
+.other-month-day {
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 3px; }
+
+.whole-week {
+  background-color: rgba(154, 195, 241, 0.3); }
 
 /*# sourceMappingURL=calendar.css.map */
