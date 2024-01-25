@@ -1,0 +1,15 @@
+@import 'reset';
+
+
+.info-container {
+    border-radius: 10px;
+    width: 50vw;
+    height: 400px;
+    position: absolute;
+    z-index: 100;
+    right: 25%;
+    transform: translateX(-25%);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, rgba(95, 92, 92, 0.20) 0%, rgba(56, 49, 49, 0.00) 100%), #dedede;
+}

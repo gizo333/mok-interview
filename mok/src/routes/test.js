@@ -1,30 +1,18 @@
-// Заданный массив чисел
-const arr = [4, 2, 3, 4, 2, 1, 1, 2, 3, 66, 5, 3];
-
-// Функция для поиска первого неповторяющегося числа в массиве
 function findFirstUniqueNumber(arr) {
-  // Используем метод reduce() для подсчета количества вхождений каждого числа в массиве
-  const countMap = arr.reduce((acc, num) => {
-    // Если число уже есть в countMap, увеличиваем его количество на 1,
-    // если нет, устанавливаем его количество в 1
-    acc[num] = (acc[num] || 0) + 1;
-    // Возвращаем обновленный объект-счетчик для следующей итерации
-    return acc;
-  }, {}); // Передаем пустой объект {} в качестве начального значения аккумулятора
-
-  // Проходимся по исходному массиву
+  const countMap = new Map();
+ 
   for (const num of arr) {
-    // Если число встречается только один раз, возвращаем его
-    if (countMap[num] === 1) {
+    countMap.set(num, (countMap.get(num) || 0) + 1);
+  }
+
+  for (const num of arr) {
+    if (countMap.get(num) === 1) {
       return num;
     }
   }
-  
-  // Если неповторяющееся число не найдено, возвращаем null
   return null;
 }
 
-// Вызываем функцию для поиска первого неповторяющегося числа
+const arr = [4, 2, 3, 4, 2, 1, 1, 2, 3, 66, 5, 3];
 const firstUnique = findFirstUniqueNumber(arr);
-// Выводим результат
-console.log(firstUnique); // Выведет: 66
+console.log(firstUnique);

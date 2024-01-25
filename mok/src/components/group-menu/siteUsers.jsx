@@ -3,10 +3,13 @@ import Table from 'rc-table';
 import '../../styles/siteUsers.css';
 import 'rc-table/assets/index.css';
 import { Input } from 'antd';
+import InfoUsers from './infoUsers';
 
 function SiteUsers({ isVisible }) {
   const [searchText, setSearchText] = useState('');
-  
+  const [showUserInfo, setShowUserInfo] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+
   const columns = [
     {
       title: 'Name',
@@ -19,16 +22,19 @@ function SiteUsers({ isVisible }) {
       key: 'age',
     },
     {
-      title: 'Address',
+      title: 'Profile',
       dataIndex: 'address',
       key: 'address',
+      render: (text, record) => (
+        <button onClick={() => handleProfileClick(record)}>{text}</button>
+      ),
     },
   ];
 
   const data = [
-    { key: 1, name: 'John Doe', age: 30, address: 'New York' },
-    { key: 2, name: 'Jane Smith', age: 25, address: 'Los Angeles' },
-    { key: 3, name: 'Bob Johnson', age: 40, address: 'Chicago' },
+    { key: 1, name: 'John Doe', age: 'Python Developer', address: 'Click' },
+    { key: 2, name: 'Jane Smith', age: 'Frontend Developer', address: 'Click' },
+    { key: 3, name: 'Bob Johnson', age: 'C++ Developer', address: 'Click' },
   ];
 
   const filteredData = data.filter(item =>
@@ -36,6 +42,11 @@ function SiteUsers({ isVisible }) {
       value.toString().toLowerCase().includes(searchText.toLowerCase())
     )
   );
+
+  const handleProfileClick = (record) => {
+    setSelectedUser(record);
+    setShowUserInfo(prevState => !prevState); // Переключаем значение showUserInfo
+  };
 
   return isVisible ? (
     <div className='usr-container'>
@@ -45,6 +56,7 @@ function SiteUsers({ isVisible }) {
         value={searchText}
       />
       <Table className='head-table' columns={columns} data={filteredData} />
+      {showUserInfo ? <InfoUsers onClose={() => setShowUserInfo(false)} selectedUser={selectedUser} /> : null}
     </div>
   ) : null;
 }
