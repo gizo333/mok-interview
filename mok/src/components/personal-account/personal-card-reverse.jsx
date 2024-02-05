@@ -14,7 +14,6 @@ import InDev from '../INdevelopment/dev';
 
 function PersonalCardReverse({ onProfileButtonClick }) {
     const handleBackButtonClick = () => {
-        // Вызовите функцию обратного вызова при нажатии на кнопку "Back"
         onProfileButtonClick();
       };
 
