@@ -12,10 +12,9 @@ const bot = new TelegramBot(token, { polling: true });
 bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
     const userId = msg.from.id;
-  
-    // Проверяем, является ли пользователь администратором
+
     if (userId === adminUserId) {
-      // Администратору доступна команда /start
+    
       const selectedLanguages = await getUserSettings(userId);
       if (!selectedLanguages) {
         const surveyText = 'Выберите язык программирования:';
