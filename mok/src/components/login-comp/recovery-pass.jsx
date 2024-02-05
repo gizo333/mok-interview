@@ -11,7 +11,6 @@ function Recovery() {
     e.preventDefault();
 
     try {
-      // Отправляем запрос к серверу для восстановления пароля
       await axios.post('http://localhost:4200/send-email', { email });
       alert('Письмо для сброса пароля отправлено на ваш email.');
     } catch (error) {
