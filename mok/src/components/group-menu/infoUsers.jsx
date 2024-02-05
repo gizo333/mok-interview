@@ -19,7 +19,6 @@ function InfoUsers({ onClose }) {
 
   return ( 
     <div className='info-container' ref={infoRef}>
-      {/* Ваш контент компонента InfoUsers */}
       <button onClick={onClose}>Close</button>
     </div>
   );
