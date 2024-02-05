@@ -47,7 +47,6 @@ function PersonalSetting() {
       if (e.target.name === 'stack') {
         setSelectedStacks(e.target.value);
       } else {
-        // В противном случае, обновляем contactFormData
         setContactFormData({
           ...contactFormData,
           [e.target.name]: e.target.value,
@@ -101,8 +100,8 @@ function PersonalSetting() {
           }
         };
     
-        fetchData(); // Вызываем функцию получения данных при монтировании
-      }, []); // Пустой массив зависимостей означает, что useEffect будет вызван только при монтировании
+        fetchData(); 
+      }, []);
     
 
    
@@ -169,7 +168,6 @@ function PersonalSetting() {
       // Проверяем, что хотя бы одно из полей не пусто
       if (!contactFormData.name && !contactFormData.lastname && !contactFormData.telegram && !contactFormData.github) {
         console.log('Хотя бы одно из полей должно быть заполнено');
-        // Здесь вы можете показать сообщение об ошибке или решить не отправлять запрос
         return;
       }
     
