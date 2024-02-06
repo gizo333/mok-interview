@@ -64,10 +64,10 @@ bot.on('callback_query', async (callbackQuery) => {
   const userId = callbackQuery.from.id;
   const selectedLanguage = callbackQuery.data;
 
-  // Обновляем настройки пользователя
+  
   await updateLanguageSelection(userId, selectedLanguage);
 
-  // Сохраняем результат в базу данных
+  
   await saveToDatabase(userId, selectedLanguage);
 
   bot.sendMessage(chatId, `Выбран язык: ${selectedLanguage}`);
@@ -121,14 +121,14 @@ async function saveToDatabase(userId, selectedLanguage) {
         let languagesArray;
 
         try {
-            // Пробуем распарсить значение из базы данных
+           
             languagesArray = JSON.parse(user.language);
         } catch (error) {
-            // В случае ошибки (например, если поле не является валидной JSON-строкой), устанавливаем пустой массив
+            
             languagesArray = [];
         }
 
-        // Добавляем новый язык в массив, если его там нет
+       
         if (!languagesArray.includes(selectedLanguage)) {
             languagesArray.push(selectedLanguage);
             user.language = JSON.stringify(languagesArray); // Сохраняем массив в виде строки JSON
@@ -152,17 +152,17 @@ async function saveToDatabase(userId, selectedLanguage) {
   
   
 
-// Запуск приложения
+
 (async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection to the database has been established successfully.');
 
-    // Синхронизация модели с базой данных
+ 
     await sequelize.sync();
     console.log('Models have been synchronized successfully.');
 
-    // Запуск бота
+    
     console.log('Bot is now running.');
   } catch (error) {
     console.error('Unable to connect to the database:', error.message || error);
