@@ -68,8 +68,8 @@ function PersonalSetting() {
       ];
       
   
-      useEffect(() => { // при монтировании страницы иде запрос к сервер на получение инфы о пользователе
-        // Функция, которая будет вызвана при монтировании компонента
+      useEffect(() => {
+     
         const fetchData = async () => {
           try {
             const token = Cookies.get('token');
@@ -82,13 +82,13 @@ function PersonalSetting() {
     
             const userData = response.data;
     
-            // Заполняем контактные данные
+           
             setContactFormData({
               name: userData.name || '',
               lastname: userData.lastname || '',
               telegram: userData.telegram || '',
               github: userData.github || '',
-              stack: userData.stack || '', // Предполагается, что сервер вернет строку с разделенными запятыми значениями
+              stack: userData.stack || '', 
             });
     
             // Разбираем строку стека и обновляем selectedStacks
@@ -125,7 +125,7 @@ function PersonalSetting() {
     
         console.log('Ответ сервера (удаление стека):', response.data);
     
-        // Обновите selectedStacks после успешного удаления элемента на сервере
+    
         const updatedStacks = [...selectedStacks];
         updatedStacks.splice(index, 1);
         setSelectedStacks(updatedStacks);
@@ -137,7 +137,7 @@ function PersonalSetting() {
 
   
     useEffect(() => {
-      const sendStackToServer = async () => { // отправляем на сервер информацию о стэке
+      const sendStackToServer = async () => { 
         console.log('Отправка стека на сервер...');
         try {
           if (selectedStacks.length > 0) {
@@ -165,13 +165,13 @@ function PersonalSetting() {
 
 
     const sendInfo = async () => { // отправляем на сервер остальную инфу, перенести в файл по api
-      // Проверяем, что хотя бы одно из полей не пусто
+     
       if (!contactFormData.name && !contactFormData.lastname && !contactFormData.telegram && !contactFormData.github) {
         console.log('Хотя бы одно из полей должно быть заполнено');
         return;
       }
     
-      // Формируем объект с данными, исключая пустые поля
+     
       const nonEmptyData = Object.fromEntries(
         Object.entries(contactFormData).filter(([_, value]) => value !== '')
       );
