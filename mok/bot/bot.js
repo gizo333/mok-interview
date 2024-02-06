@@ -1,4 +1,4 @@
-// main.js
+
 
 const TelegramBot = require('node-telegram-bot-api');
 const sequelize = require('./database');
